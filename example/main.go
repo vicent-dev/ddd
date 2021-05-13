@@ -21,7 +21,6 @@ func main() {
 	start(Infrastructure.NewServiceProvider())
 }
 
-//at bigger project the configuration of http should go on general
 func start(sp *serviceProvider.ServiceProvider) {
 	port := os.Getenv("API_PORT")
 
