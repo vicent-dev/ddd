@@ -1,6 +1,7 @@
 package example
 
 import (
+	ping "ddd-go/example/ping/Infrastructure/http"
 	"ddd-go/http/response"
 	"ddd-go/serviceProvider"
 	"log"
@@ -20,7 +21,7 @@ func start(sp *serviceProvider.ServiceProvider) {
 	r := mux.NewRouter()
 	r.Use(response.JsonMiddleware)
 
-	(ping.NewTreeHandler(sp)).SetEndpoints(r)
+	(ping.NewHandler(sp)).SetEndpoints(r)
 
 	err := http.ListenAndServe(":"+port, r)
 
