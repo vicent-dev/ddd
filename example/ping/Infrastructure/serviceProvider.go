@@ -17,9 +17,12 @@ func NewServiceProvider() *serviceProvider.ServiceProvider {
 	queryBus := cqrs.NewQueryBus()
 	queryBus.AddHandler(Application.PingQuery{}, Application.PingQueryHandler{pr})
 
+	sp.Register("query_bus", queryBus)
+
 	//command bus
 	commandBus := cqrs.NewCommandBus()
 	commandBus.AddHandler(Application.PingCommand{}, Application.PingCommandHandler{pr})
+	sp.Register("command_bus", commandBus)
 
 	return sp
 }

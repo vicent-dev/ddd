@@ -14,8 +14,8 @@ type PingHandler struct {
 
 func NewHandler(sp *serviceProvider.ServiceProvider) *PingHandler {
 	return &PingHandler{
-		GetPingHandler{sp.Get("queryBus").(cqrs.QueryBus)},
-		PostPingHandler{sp.Get("command.bus").(cqrs.CommandBus)},
+		GetPingHandler{sp.Get("query_bus").(cqrs.QueryBus)},
+		PostPingHandler{sp.Get("command_bus").(cqrs.CommandBus)},
 	}
 }
 

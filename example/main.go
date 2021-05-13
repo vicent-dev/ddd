@@ -1,6 +1,7 @@
-package example
+package main
 
 import (
+	"ddd-go/example/ping/Infrastructure"
 	ping "ddd-go/example/ping/Infrastructure/http"
 	"ddd-go/http/response"
 	"ddd-go/serviceProvider"
@@ -9,9 +10,15 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	start(Infrastructure.NewServiceProvider())
 }
 
 //at bigger project the configuration of http should go on general

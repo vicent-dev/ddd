@@ -14,7 +14,7 @@ type GetPingHandler struct {
 
 type GetPingHandlerResponse struct {
 	//add more stuff if needed
-	pingResult interface{}
+	PingResult interface{}
 }
 
 func (h GetPingHandler) Handle(w http.ResponseWriter, r *http.Request) {

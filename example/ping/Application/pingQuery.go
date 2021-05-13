@@ -12,7 +12,7 @@ func (PingQuery PingQuery) ID() string {
 }
 
 type PingQueryResult struct {
-	value map[string]string
+	Value map[string]string
 }
 
 type PingQueryHandler struct {
