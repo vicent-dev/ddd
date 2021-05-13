@@ -1,6 +1,6 @@
 # DDD-GO
 
-Work in progress package for apply ddd with go programming language
+Work in progress package for applying ddd with go programming language
 
 
 ### Run example
