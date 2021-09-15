@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/vicent-dev/ddd-go/http/response"
-	"github.com/vicent-dev/ddd-go/serviceProvider"
+	"github.com/vicent-dev/ddd/http/response"
+	"github.com/vicent-dev/ddd/serviceProvider"
 
 	"example/ping/Infrastructure"
 
