@@ -32,10 +32,6 @@ func start(sp *serviceProvider.ServiceProvider) {
 
 	(ping.NewHandler(sp)).SetEndpoints(r)
 
-	err := http.ListenAndServe(":"+port, r)
-
-	if err != nil {
-		log.Fatalf("can't start http server at port %s", port)
-	}
-	log.Printf("listening from port %s\n", port)
+	log.Printf("Running server at port %s\n", port)
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
