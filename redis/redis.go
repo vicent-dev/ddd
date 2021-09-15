@@ -2,9 +2,6 @@ package redis
 
 import (
 	"context"
-	"log"
-	"os"
-	"strconv"
 	"time"
 
 	"github.com/gomodule/redigo/redis"
@@ -14,12 +11,8 @@ type RedisConnection struct {
 	pool *redis.Pool
 }
 
-func NewRedisConnection() *RedisConnection {
-	address := os.Getenv("REDIS_HOST") + ":" + os.Getenv("REDIS_PORT")
-	maxIdle, err := strconv.Atoi(os.Getenv("REDIS_MAX_IDLE"))
-	if err != nil {
-		log.Fatal(err)
-	}
+func NewRedisConnection(host, port string, maxIdle int) *RedisConnection {
+	address := host + ":" + port
 	return &RedisConnection{&redis.Pool{
 		MaxIdle:     maxIdle,
 		IdleTimeout: 240 * time.Second,
