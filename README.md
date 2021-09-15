@@ -1,4 +1,4 @@
-# DDD-GO
+# DDD
 
 Work in progress package for applying ddd with go programming language
 
