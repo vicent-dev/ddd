@@ -1,11 +1,13 @@
 package http
 
 import (
-	"ddd-go/cqrs"
-	"ddd-go/example/ping/Application"
-	"ddd-go/http/response"
 	"encoding/json"
 	"net/http"
+
+	"example/ping/Application"
+
+	"github.com/vicent-dev/ddd-go/cqrs"
+	"github.com/vicent-dev/ddd-go/http/response"
 )
 
 type GetPingHandler struct {

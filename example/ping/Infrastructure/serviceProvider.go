@@ -1,10 +1,11 @@
 package Infrastructure
 
 import (
-	"ddd-go/cqrs"
-	"ddd-go/example/ping/Application"
-	"ddd-go/example/ping/Domain"
-	"ddd-go/serviceProvider"
+	"example/ping/Application"
+	"example/ping/Domain"
+
+	"github.com/vicent-dev/ddd-go/cqrs"
+	"github.com/vicent-dev/ddd-go/serviceProvider"
 )
 
 func NewServiceProvider() *serviceProvider.ServiceProvider {

@@ -1,6 +1,6 @@
 package Infrastructure
 
-import "ddd-go/example/ping/Domain"
+import "example/ping/Domain"
 
 type PingInMemoryRepository struct{}
 

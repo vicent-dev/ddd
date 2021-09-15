@@ -1,8 +1,9 @@
 package Application
 
 import (
-	"ddd-go/cqrs"
-	"ddd-go/example/ping/Domain"
+	"example/ping/Domain"
+
+	"github.com/vicent-dev/ddd-go/cqrs"
 )
 
 type PingCommand struct{}

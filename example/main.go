@@ -1,15 +1,16 @@
 package main
 
 import (
-	"ddd-go/http/response"
-	"ddd-go/serviceProvider"
 	"log"
 	"net/http"
 	"os"
 
-	"github.com/vicent-dev/ddd-go/example/ping/Infrastructure"
+	"github.com/vicent-dev/ddd-go/http/response"
+	"github.com/vicent-dev/ddd-go/serviceProvider"
 
-	ping "github.com/vicent-dev/ddd-go/example/ping/Infrastructure/http"
+	"example/ping/Infrastructure"
+
+	ping "example/ping/Infrastructure/http"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"

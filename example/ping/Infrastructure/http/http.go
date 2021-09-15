@@ -1,8 +1,8 @@
 package http
 
 import (
-	"ddd-go/cqrs"
-	"ddd-go/serviceProvider"
+	"github.com/vicent-dev/ddd-go/cqrs"
+	"github.com/vicent-dev/ddd-go/serviceProvider"
 
 	"github.com/gorilla/mux"
 )
