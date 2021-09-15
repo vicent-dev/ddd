@@ -6,8 +6,8 @@ import (
 
 	"example/ping/Application"
 
-	"github.com/vicent-dev/ddd-go/cqrs"
-	"github.com/vicent-dev/ddd-go/http/response"
+	"github.com/vicent-dev/ddd/cqrs"
+	"github.com/vicent-dev/ddd/http/response"
 )
 
 type GetPingHandler struct {

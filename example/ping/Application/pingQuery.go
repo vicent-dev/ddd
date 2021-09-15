@@ -3,7 +3,7 @@ package Application
 import (
 	"example/ping/Domain"
 
-	"github.com/vicent-dev/ddd-go/cqrs"
+	"github.com/vicent-dev/ddd/cqrs"
 )
 
 type PingQuery struct{}

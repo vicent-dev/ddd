@@ -4,8 +4,8 @@ import (
 	"example/ping/Application"
 	"example/ping/Domain"
 
-	"github.com/vicent-dev/ddd-go/cqrs"
-	"github.com/vicent-dev/ddd-go/serviceProvider"
+	"github.com/vicent-dev/ddd/cqrs"
+	"github.com/vicent-dev/ddd/serviceProvider"
 )
 
 func NewServiceProvider() *serviceProvider.ServiceProvider {
