@@ -1,12 +1,13 @@
-package redis
+package main
 
 import (
 	"context"
-	"github.com/gomodule/redigo/redis"
 	"log"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/gomodule/redigo/redis"
 )
 
 type RedisConnection struct {

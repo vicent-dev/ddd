@@ -1,4 +1,4 @@
-package serviceProvider
+package main
 
 import "errors"
 
