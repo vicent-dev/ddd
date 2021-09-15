@@ -1,6 +1,9 @@
 package serviceProvider
 
-import "errors"
+import (
+	"errors"
+	"log"
+)
 
 type ServiceProvider struct {
 	service map[string]interface{}
@@ -11,6 +14,11 @@ func NewServiceProvider() *ServiceProvider {
 }
 
 func (sp ServiceProvider) Get(serviceName string) interface{} {
+
+	if _, added := sp.service[serviceName]; !added {
+		log.Fatalf("service with name %v not  added", serviceName)
+	}
+
 	return sp.service[serviceName]
 }
 
