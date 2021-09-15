@@ -1,4 +1,4 @@
-module github.com/vicent-dev/ddd-go
+module github.com/vicent-dev/ddd
 
 go 1.17
 
