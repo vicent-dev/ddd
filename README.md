@@ -7,7 +7,5 @@ Work in progress package for applying ddd with go programming language
 
 
 ```bash
-cd example
-go build
-./example
+ cd example && go run example
 ```
