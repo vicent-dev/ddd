@@ -29,10 +29,10 @@ func (b *QueryBus) AddHandler(Query Query, handler QueryHandler) error {
 	return nil
 }
 
-func (b *QueryBus) Handle(Query Query) (interface{}, error) {
-	if _, added := b.handlers[Query.ID()]; !added {
+func (b *QueryBus) Handle(query Query) (interface{}, error) {
+	if _, added := b.handlers[query.ID()]; !added {
 		return nil, errors.New("Bus doesn't have a valid handler for that query")
 	}
 
-	return b.handlers[Query.ID()].Handle(Query)
+	return b.handlers[query.ID()].Handle(query)
 }

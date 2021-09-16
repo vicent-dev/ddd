@@ -1,7 +1,9 @@
-package ddd
+package tests
 
 import (
 	"testing"
+
+	"github.com/vicent-dev/ddd"
 )
 
 type payload struct {
@@ -33,7 +35,7 @@ func (s subtraction) Process(data interface{}) interface{} {
 }
 
 func TestChain_Process(t *testing.T) {
-	c := NewChain(
+	c := ddd.NewChain(
 		sum{},
 		multiplier{},
 		subtraction{},
