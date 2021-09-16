@@ -1,4 +1,4 @@
-package serviceProvider
+package ddd
 
 import (
 	"errors"

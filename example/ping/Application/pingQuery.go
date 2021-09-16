@@ -3,7 +3,7 @@ package Application
 import (
 	"example/ping/Domain"
 
-	"github.com/vicent-dev/ddd/cqrs"
+	"github.com/vicent-dev/ddd"
 )
 
 type PingQuery struct{}
@@ -20,7 +20,7 @@ type PingQueryHandler struct {
 	Pr Domain.PingRepository
 }
 
-func (handler PingQueryHandler) Handle(query cqrs.Query) (interface{}, error) {
+func (handler PingQueryHandler) Handle(query ddd.Query) (interface{}, error) {
 	ping := handler.Pr.Get()
 	return PingQueryResult{map[string]string{"ping": ping.Value}}, nil
 }

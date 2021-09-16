@@ -1,4 +1,4 @@
-package pattern
+package ddd
 
 import (
 	"testing"

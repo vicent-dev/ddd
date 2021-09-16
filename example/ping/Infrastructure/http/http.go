@@ -1,10 +1,8 @@
 package http
 
 import (
-	"github.com/vicent-dev/ddd/cqrs"
-	"github.com/vicent-dev/ddd/serviceProvider"
-
 	"github.com/gorilla/mux"
+	"github.com/vicent-dev/ddd"
 )
 
 type PingHandler struct {
@@ -12,10 +10,10 @@ type PingHandler struct {
 	postPingHandler PostPingHandler
 }
 
-func NewHandler(sp *serviceProvider.ServiceProvider) *PingHandler {
+func NewHandler(sp *ddd.ServiceProvider) *PingHandler {
 	return &PingHandler{
-		GetPingHandler{sp.Get("query_bus").(cqrs.QueryBus)},
-		PostPingHandler{sp.Get("command_bus").(cqrs.CommandBus)},
+		GetPingHandler{sp.Get("query_bus").(ddd.QueryBus)},
+		PostPingHandler{sp.Get("command_bus").(ddd.CommandBus)},
 	}
 }
 

@@ -4,6 +4,8 @@ go 1.17
 
 require (
 	github.com/gomodule/redigo v1.8.5
+	github.com/gorilla/mux v1.8.0
+	github.com/joho/godotenv v1.3.0
 	go.mongodb.org/mongo-driver v1.7.2
 )
 

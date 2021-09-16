@@ -1,4 +1,4 @@
-package response
+package ddd
 
 import (
 	"encoding/json"

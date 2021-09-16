@@ -1,4 +1,4 @@
-package pattern
+package ddd
 
 type ChainInterface interface {
 	Process(data interface{}) interface{}

@@ -6,12 +6,11 @@ import (
 
 	"example/ping/Application"
 
-	"github.com/vicent-dev/ddd/cqrs"
-	"github.com/vicent-dev/ddd/http/response"
+	"github.com/vicent-dev/ddd"
 )
 
 type GetPingHandler struct {
-	qb cqrs.QueryBus
+	qb ddd.QueryBus
 }
 
 type GetPingHandlerResponse struct {
@@ -23,7 +22,7 @@ func (h GetPingHandler) Handle(w http.ResponseWriter, r *http.Request) {
 	result, err := h.qb.Handle(Application.PingQuery{})
 
 	if err != nil {
-		response.WriteErrorResponse(w, err)
+		ddd.WriteErrorResponse(w, err)
 		return
 	}
 
