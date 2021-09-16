@@ -5,15 +5,13 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/vicent-dev/ddd/http/response"
-	"github.com/vicent-dev/ddd/serviceProvider"
-
 	"example/ping/Infrastructure"
 
 	ping "example/ping/Infrastructure/http"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
+	"github.com/vicent-dev/ddd"
 )
 
 func main() {
@@ -24,11 +22,11 @@ func main() {
 	start(Infrastructure.NewServiceProvider())
 }
 
-func start(sp *serviceProvider.ServiceProvider) {
+func start(sp *ddd.ServiceProvider) {
 	port := os.Getenv("API_PORT")
 
 	r := mux.NewRouter()
-	r.Use(response.JsonMiddleware)
+	r.Use(ddd.JsonMiddleware)
 
 	(ping.NewHandler(sp)).SetEndpoints(r)
 
