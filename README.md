@@ -51,6 +51,6 @@ type MyQueryResult struct {
 type MyQueryHandler struct { }//handler with dependencies
 
 func (handler MyQueryHandler) Handle(query ddd.Query) (interface{}, error) {
-	return MyQueryResult{map[string]string{"": 0}}, nil
+	return MyQueryResult{map[string]string{"": ""}}, nil
 }
 ```
