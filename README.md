@@ -70,7 +70,11 @@ type MyService struct {}
 //init service provider
 sp := ddd.NewServiceProvider()
 
-//add services. Maybe a good practice that name of service were a function/property of the same service. We could force implementation of X interface but prefered freedom of services.
+/*
+add services. Maybe a good practice that name of service were a
+function/property of the same service. We could force implementation 
+of X interface but prefered freedom of any type of services.
+*/
 
 sp.Register("function_service", func() string {
     return "my function service"
