@@ -2,13 +2,12 @@
 
 Generic tools for making easier to apply DDD with golang
 
-### Run example
+### Use library
 
-
+Install to your project:
 ```bash
- cd example && go run example
+ go get github.com/vicent-dev/ddd
 ```
-
 
 ### CQRS
 #### Command example:
