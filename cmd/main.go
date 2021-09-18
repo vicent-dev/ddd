@@ -1,6 +1,8 @@
 package main
 
-var (
+import "fmt"
+
+const (
 	asciiArt = `
  _____     _____     _____        ______   ______     ______     __        
 /\  __-.  /\  __-.  /\  __-.     /\__  _\ /\  __ \   /\  __ \   /\ \       
@@ -11,5 +13,6 @@ var (
 )
 
 func main() {
+	fmt.Println(asciiArt)
 	menuLoop()
 }

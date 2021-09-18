@@ -52,7 +52,8 @@ func menuLoop() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			optionsProcessor[option](nil)
+			optionsProcessor[option]()
+			break
 		}
 	}
 }

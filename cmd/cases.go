@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type optionCase func(params interface{}) error
+type optionCase func(params ...interface{}) error
 
 var (
 	createContextCase = createContext
@@ -10,15 +10,15 @@ var (
 	createQueryCase   = createQuery
 )
 
-func createContext(params interface{}) error {
+func createContext(params ...interface{}) error {
 	fmt.Println("create context use case")
 	return nil
 }
-func createCommand(params interface{}) error {
+func createCommand(params ...interface{}) error {
 	fmt.Println("create command use case")
 	return nil
 }
-func createQuery(params interface{}) error {
+func createQuery(params ...interface{}) error {
 	fmt.Println("create query use case")
 	return nil
 }
