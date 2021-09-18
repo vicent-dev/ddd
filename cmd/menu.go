@@ -51,10 +51,14 @@ func menuLoop() {
 		option, err := cleanOption(rawOption)
 		if err != nil {
 			fmt.Println(err.Error())
-		} else {
-			optionsProcessor[option]()
-			break
+			continue
 		}
+
+		if err := optionsProcessor[option](os.Args[1:]); err != nil {
+			fmt.Println(err.Error())
+		}
+
+		break
 	}
 }
 

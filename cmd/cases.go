@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
-type optionCase func(params ...interface{}) error
+type optionCase func(params []string) error
 
 var (
 	createContextCase = createContext
@@ -10,15 +14,25 @@ var (
 	createQueryCase   = createQuery
 )
 
-func createContext(params ...interface{}) error {
-	fmt.Println("create context use case")
+func createContext(params []string) error {
+	var context string
+	if len(params) != 0 {
+		context = params[0]
+	} else {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Introduce the name of context: ")
+		context, _ = reader.ReadString('\n')
+	}
+
+	fmt.Println(context)
+
 	return nil
 }
-func createCommand(params ...interface{}) error {
+func createCommand(params []string) error {
 	fmt.Println("create command use case")
 	return nil
 }
-func createQuery(params ...interface{}) error {
+func createQuery(params []string) error {
 	fmt.Println("create query use case")
 	return nil
 }
