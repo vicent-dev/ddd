@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/vicent-dev/ddd/cmd/template"
 )
 
 type optionCase func(params []string) error
@@ -26,8 +28,8 @@ func createContext(params []string) error {
 	}
 
 	context = strings.TrimSuffix(context, "\n")
-	ct := NewContextTemplate(context)
-	if err := ct.generate(); err != nil {
+	ct := template.NewContextTemplate(context)
+	if err := ct.Generate(); err != nil {
 		return err
 	}
 

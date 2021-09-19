@@ -1,4 +1,4 @@
-package main
+package template
 
 import (
 	"fmt"
@@ -14,16 +14,12 @@ type ContextTemplate struct {
 
 func NewContextTemplate(context string) *ContextTemplate {
 	ct := &ContextTemplate{name: strcase.ToLowerCamel(context)}
-
-	ct.domainCode = fmt.Sprintf(
-		`package Domain
-
-type %v struct {}`, strcase.ToCamel(context))
+	ct.domainCode = fmt.Sprintf(domainTemplate, strcase.ToCamel(context))
 
 	return ct
 }
 
-func (c *ContextTemplate) generate() error {
+func (c *ContextTemplate) Generate() error {
 
 	folders := []string{"Application", "Domain", "Infrastructure"}
 
