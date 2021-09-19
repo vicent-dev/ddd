@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type optionCase func(params []string) error
@@ -24,7 +25,11 @@ func createContext(params []string) error {
 		context, _ = reader.ReadString('\n')
 	}
 
-	fmt.Println(context)
+	context = strings.TrimSuffix(context, "\n")
+	ct := NewContextTemplate(context)
+	if err := ct.generate(); err != nil {
+		return err
+	}
 
 	return nil
 }
