@@ -41,3 +41,11 @@ func (c *ContextTemplate) Generate() error {
 
 	return nil
 }
+
+func (c *ContextTemplate) GenerateIfNotExists() error {
+	if _, err := os.Stat("./" + c.name); os.IsNotExist(err) {
+		return c.Generate()
+	}
+
+	return nil
+}
