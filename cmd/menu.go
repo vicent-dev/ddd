@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -63,9 +64,17 @@ func menuLoop() {
 }
 
 func displayOptions() {
-	for opt, str := range menuOptions {
-		fmt.Printf("%v) %s \r\n", opt, str)
+	keys := make([]int, 0, len(menuOptions))
+
+	for k := range menuOptions {
+		keys = append(keys, int(k))
 	}
+	sort.Ints(keys)
+
+	for _, k := range keys {
+		fmt.Printf("%v) %s \r\n", k, menuOptions[menuOption(k)])
+	}
+
 	fmt.Println("Enter q to exit")
 }
 
