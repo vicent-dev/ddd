@@ -30,3 +30,7 @@ func (sp *ServiceProvider) Register(serviceName string, service interface{}) err
 	sp.service[serviceName] = service
 	return nil
 }
+
+func (sp *ServiceProvider) OverwriteService(serviceName string, service interface{}) {
+	sp.service[serviceName] = service
+}
