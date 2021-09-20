@@ -27,7 +27,22 @@ func (handler %vHandler) Handle(query ddd.Query) (interface{}, error) {
 }
 	`
 
-	commandTempalte = `
+	commandTempalte = `package Application
 
+import (
+	"github.com/vicent-dev/ddd"
+)
+
+type %vCommand struct{}
+
+func (%v %vCommand) ID() string {
+	return "%v"
+}
+
+type %vHandler struct { }
+
+func (handler %vHandler) Handle(command ddd.Command) error {
+	return nil
+}
 	`
 )

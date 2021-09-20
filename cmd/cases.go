@@ -37,9 +37,35 @@ func createContext(params []string) error {
 }
 
 func createCommand(params []string) error {
-	fmt.Println("create command use case")
+	var commandCase string
+	var context string
+
+	if len(params) > 0 {
+		context = params[0]
+	} else {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Introduce the name of context: ")
+		context, _ = reader.ReadString('\n')
+	}
+
+	if len(params) >= 1 {
+		commandCase = params[1]
+	} else {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Introduce the name of command: ")
+		commandCase, _ = reader.ReadString('\n')
+	}
+
+	commandCase = strings.TrimSuffix(commandCase, "\n")
+	context = strings.TrimSuffix(context, "\n")
+	qt := template.NewCommandTemplate(context, commandCase)
+	if err := qt.Generate(); err != nil {
+		return err
+	}
+
 	return nil
 }
+
 func createQuery(params []string) error {
 	var queryCase string
 	var context string
