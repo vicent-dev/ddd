@@ -10,11 +10,13 @@ import (
 type ContextTemplate struct {
 	name       string
 	domainCode string
+	spCode     string
 }
 
 func NewContextTemplate(context string) *ContextTemplate {
 	ct := &ContextTemplate{name: strcase.ToLowerCamel(context)}
 	ct.domainCode = fmt.Sprintf(domainTemplate, strcase.ToCamel(context))
+	ct.spCode = serviceProviderTemplate
 
 	return ct
 }
@@ -36,6 +38,16 @@ func (c *ContextTemplate) Generate() error {
 	}
 
 	if _, err := f.WriteString(c.domainCode); err != nil {
+		return err
+	}
+
+	fSp, err := os.Create("./" + c.name + "/Infrastructure/serviceProvider.go")
+
+	if err != nil {
+		return err
+	}
+
+	if _, err := fSp.WriteString(c.spCode); err != nil {
 		return err
 	}
 

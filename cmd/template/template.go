@@ -45,4 +45,33 @@ func (handler %vHandler) Handle(command ddd.Command) error {
 	return nil
 }
 	`
+
+	serviceProviderTemplate = `package Infrastructure
+
+import (
+	"github.com/vicent-dev/ddd"
+)
+
+func NewServiceProvider() *ddd.ServiceProvider {
+	sp := ddd.NewServiceProvider()
+
+
+	//query bus
+	queryBus := ddd.NewQueryBus()
+
+	//add here query use cases to query bus
+
+	sp.Register("query_bus", queryBus)
+
+	//command bus
+	commandBus := ddd.NewCommandBus()
+
+
+	//add here query use cases to command bus
+
+
+	sp.Register("command_bus", commandBus)
+
+	return sp
+}`
 )
