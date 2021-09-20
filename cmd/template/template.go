@@ -59,7 +59,8 @@ func NewServiceProvider() *ddd.ServiceProvider {
 	//query bus
 	queryBus := ddd.NewQueryBus()
 
-	//add here query use cases to query bus
+	//QUERY_SERVICES
+	//QUERY_SERVICES
 
 	sp.Register("query_bus", queryBus)
 
@@ -67,7 +68,8 @@ func NewServiceProvider() *ddd.ServiceProvider {
 	commandBus := ddd.NewCommandBus()
 
 
-	//add here query use cases to command bus
+	//COMMAND_SERVICES
+	//COMMAND_SERVICES
 
 
 	sp.Register("command_bus", commandBus)

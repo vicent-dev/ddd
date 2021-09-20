@@ -2,7 +2,9 @@ package template
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
+	"regexp"
 
 	"github.com/iancoleman/strcase"
 )
@@ -42,5 +44,25 @@ func (q *QueryTemplate) Generate() error {
 		return err
 	}
 
+	//q.addUseCaseSP()
+
+	return nil
+}
+
+func (q *QueryTemplate) addUseCaseSP() error {
+
+	f, err := os.OpenFile("./"+q.context+"/Infrastructure/serviceProvider.go", os.O_RDONLY|os.O_CREATE, 0600)
+	if err != nil {
+		return err
+	}
+	b, err := ioutil.ReadAll(f)
+	if err != nil {
+		return err
+	}
+	spContent := string(b)
+	re := regexp.MustCompile(`//QUERY_SERVICES(.*)//QUERY_SERVICES`)
+
+	qServices := re.FindAllStringSubmatch(spContent, -1)[0]
+	fmt.Println(qServices)
 	return nil
 }
