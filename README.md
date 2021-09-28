@@ -1,5 +1,8 @@
-# DDD
+# Warning ⚠
+Maybe you don't need any library to apply DDD in golang:
+https://www.linkedin.com/pulse/huyendo-hacia-lo-simple-volv%25C3%25AD-caer-en-la-verbosidad-vicent/?trackingId=JY5Oy%2BqMSqKp%2FGvFb9DfxQ%3D%3D
 
+# DDD
 Generic tools for making easier to apply DDD with golang
 
 ### Use library
