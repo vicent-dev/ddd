@@ -22,7 +22,8 @@ func QueryBus_AddHandlerAndHandleTest(t *testing.T) {
 
 	q := TestQuery{}
 
-	if err := qb.AddHandler(q, qh); err != nil { t.Errorf("Not expected error, get: %s", err.Error())
+	if err := qb.AddHandler(q, qh); err != nil { 
+		t.Errorf("Not expected error, get: %s", err.Error())
 	}
 
 	if _, err := qb.Handle(q); err != nil {
