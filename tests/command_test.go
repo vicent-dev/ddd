@@ -8,20 +8,16 @@ import (
 
 type TestCommand struct{}
 
-func (t TestCommand) ID() string {
-	return "test_command"
-}
+type TestCommandHandler[T comparable] struct{}
 
-type TestCommandHandler struct{}
-
-func (t TestCommandHandler) Handle(command ddd.Command) error {
+func (t TestCommandHandler[T]) Handle(command T) error {
 	return nil
 }
 
 func CommandBus_AddHandlerAndHandleTest(t *testing.T) {
-	cb := ddd.NewCommandBus()
+	cb := ddd.NewCommandBus[any]()
 
-	if err := cb.AddHandler(TestCommand{}, TestCommandHandler{}); err != nil {
+	if err := cb.AddHandler(TestCommand{}, TestCommandHandler[any]{}); err != nil {
 		t.Errorf("Not expected error, get: %s", err.Error())
 	}
 

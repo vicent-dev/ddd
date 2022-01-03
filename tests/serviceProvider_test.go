@@ -14,7 +14,7 @@ func (f formatter) format(str string) string {
 
 func TestServiceProvider_RegisterAndGet(t *testing.T) {
 
-	sp := ddd.NewServiceProvider()
+	sp := ddd.NewServiceProvider[any]()
 	sp.Register("beautifier", formatter{})
 	service := sp.Get("beautifier") //don't return an error, if the service is not loaded, expected log fatal
 

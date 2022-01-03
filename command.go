@@ -2,37 +2,33 @@ package ddd
 
 import "errors"
 
-type Command interface {
-	ID() string
+type CommandHandler[T comparable]interface {
+	Handle(command T) error
 }
 
-type CommandHandler interface {
-	Handle(command Command) error
+type CommandBus[T comparable] struct {
+	handlers map[T]CommandHandler[T]
 }
 
-type CommandBus struct {
-	handlers map[string]CommandHandler
+func NewCommandBus[T comparable]() CommandBus[T] {
+	return CommandBus[T]{make(map[T]CommandHandler[T])}
 }
 
-func NewCommandBus() CommandBus {
-	return CommandBus{make(map[string]CommandHandler)}
-}
+func (b *CommandBus[T]) AddHandler(command T, handler CommandHandler[T]) error {
 
-func (b *CommandBus) AddHandler(command Command, handler CommandHandler) error {
-
-	if _, added := b.handlers[command.ID()]; added {
+	if _, added := b.handlers[command]; added {
 		return errors.New("The bus already has a handler associated to that command id")
 	}
 
-	b.handlers[command.ID()] = handler
+	b.handlers[command] = handler
 
 	return nil
 }
 
-func (b *CommandBus) Handle(command Command) error {
-	if _, added := b.handlers[command.ID()]; !added {
+func (b *CommandBus[T]) Handle(command T) error {
+	if _, added := b.handlers[command]; !added {
 		return errors.New("Bus doesn't have a valid handler for that command")
 	}
 
-	return b.handlers[command.ID()].Handle(command)
+	return b.handlers[command].Handle(command)
 }
