@@ -15,9 +15,9 @@ func (t TestCommandHandler[T]) Handle(command T) error {
 }
 
 func CommandBus_AddHandlerAndHandleTest(t *testing.T) {
-	cb := ddd.NewCommandBus[any]()
+	cb := ddd.NewCommandBus[TestCommand]()
 
-	if err := cb.AddHandler(TestCommand{}, TestCommandHandler[any]{}); err != nil {
+	if err := cb.AddHandler(TestCommand{}, TestCommandHandler[TestCommand]{}); err != nil {
 		t.Errorf("Not expected error, get: %s", err.Error())
 	}
 

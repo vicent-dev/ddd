@@ -6,7 +6,7 @@ import (
 	"github.com/vicent-dev/ddd"
 )
 
-type TestQuery struct { }
+type TestQuery struct{}
 
 //type T and K??
 type TestQueryHandler[T comparable, K any] struct{}
@@ -17,12 +17,12 @@ func (t TestQueryHandler[T, K]) Handle(query T) (K, error) {
 }
 
 func QueryBus_AddHandlerAndHandleTest(t *testing.T) {
-	qb := ddd.NewQueryBus[any, any]()
-	qh := TestQueryHandler[any, any]{}
+	qb := ddd.NewQueryBus[TestQuery, any]()
+	qh := TestQueryHandler[TestQuery, any]{}
 
 	q := TestQuery{}
 
-	if err := qb.AddHandler(q, qh); err != nil { 
+	if err := qb.AddHandler(q, qh); err != nil {
 		t.Errorf("Not expected error, get: %s", err.Error())
 	}
 
