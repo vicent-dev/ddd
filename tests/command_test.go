@@ -14,7 +14,7 @@ func (t TestCommandHandler[T]) Handle(command T) error {
 	return nil
 }
 
-func CommandBus_AddHandlerAndHandleTest(t *testing.T) {
+func TestCommandBus_AddHandlerAndHandle(t *testing.T) {
 	cb := ddd.NewCommandBus[TestCommand]()
 
 	if err := cb.AddHandler(TestCommand{}, TestCommandHandler[TestCommand]{}); err != nil {

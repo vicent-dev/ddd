@@ -16,7 +16,7 @@ func (t TestQueryHandler[T, K]) Handle(query T) (K, error) {
 	return res, nil
 }
 
-func QueryBus_AddHandlerAndHandleTest(t *testing.T) {
+func TestQueryBus_AddHandlerAndHandle(t *testing.T) {
 	qb := ddd.NewQueryBus[TestQuery, any]()
 	qh := TestQueryHandler[TestQuery, any]{}
 
